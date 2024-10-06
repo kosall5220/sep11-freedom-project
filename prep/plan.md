@@ -1,7 +1,8 @@
 # Plan
 
-## Tool: 
-## Product: 
+## Tool: Firebase
+## Product: Time Capsule App
+**Description of app:** This app will help users preserve their memories or thoughts for the future by allowing them to create text, audio, or video entries and to journal or document their memories and plans.
 
 ---
 
