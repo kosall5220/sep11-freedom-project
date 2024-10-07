@@ -13,14 +13,10 @@ const firebaseConfig = {
   };
 
   // init firebase app
-  initiallizeApp(firebaseConfig)
+  initializeApp(firebaseConfig)
 
   // init services
   const db = getFirestore()
-
-  const db = firebase.firestore()
-
-  db.collection("books")
 
   // collection ref
   const colRef = collection(db, 'books')
