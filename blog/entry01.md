@@ -29,7 +29,7 @@ To make my project I will use a **third-party JS tool** and the **Engineering De
 
 ### Engineering Design Process (EDP)
 
-Currently I completed steps 1-3 of the EDP which are defining and **researching the problem** (steps 1-2) and **brainstorming solutions** (step 3).
+Currently I completed steps 1-3 of the EDP which are **defining and researching the problem** (steps 1-2) and **brainstorming solutions** (step 3).
 
 I didn’t really follow the steps in order since I first thought about what I wanted to make, and then after that I thought about the problems it could fix.
 
@@ -125,7 +125,7 @@ I wanted to put the information from my database into an array. To do this I use
   ```
 
 ##### Result:
-  ![image](../imgs/arrays1.png)
+![image](../imgs/arrays1.png)
 
 ##### Full code:
 ![image](../imgs/test1.png)
