@@ -29,9 +29,9 @@ To make my project I will use a **third-party JS tool** and the **Engineering De
 
 ### Engineering Design Process (EDP)
 
-Currently I completed steps 1-3 of the EDP which are defining and researching the problem (steps 1-2) and brainstorming solutions (step 3).
+Currently I completed steps 1-3 of the EDP which are defining and **researching the problem** (steps 1-2) and **brainstorming solutions** (step 3).
 
-I didn’t really follow the steps in order since I first thought about what I wanted to make, and then after that I thought about the problems it could fix.
+I didn’t really follow the steps in order since I first thought about what I wanted to make first, and then after that I thought about the problems it could fix.
 
 
 #### Some problems that my app could help fix
@@ -46,19 +46,18 @@ I didn’t really follow the steps in order since I first thought about what I w
     * Website about this problem: [cdc.gov](https://www.cdc.gov/emotional-well-being/about/index.html)
 
 #### Next step
-The next step of the EDP is to plan the most promising solution. I will start to brainstorm and plan out how my app will look and work.
+The next step of the EDP is to **plan the most promising solution**. I will start to brainstorm and plan out how my app will look and work.
 
 ### My Tool
 
 For my project I want to give users the ability to make entries to preserve their memories, but there has to be a way to save these entries. Where would these entries be stored?
 
-To deal with this problem I plan to use the JS tool [Firebase](https://firebase.google.com/). Firebase is a platform developed by Google that provides tools for building or improving applications, such as real-time databases, authentication, hosting, analytics, and file storage. For my app I plan to use Firebase to create a database in order to store all of the user's entries.
+To deal with this problem I plan to use the JS tool [Firebase](https://firebase.google.com/). **Firebase** is a platform developed by Google that provides tools for building or improving applications, such as real-time databases, authentication, hosting, analytics, and file storage. For my app I plan to use Firebase to create a database in order to store all of the user's entries.
 
 #### Learning my tool
 
 Currently I am learning how to use Firebase. I’ve logged my progress in this [learning log](../tool/learning-log.md). Here’s what I’ve learned so far:
 
- I learned how to get started with firebase by following the first 4 videos from the [“Getting Started With Firebase 9”](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb) playlist by Net Ninja on youtube.
 
 ##### Why use firebase?
 Firebase is useful for developers because it allows them to focus on the front end of their app without having to worry about the backend.
@@ -131,7 +130,7 @@ I wanted to put the information from my database into an array. To do this I use
 ##### Full code:
 ![image](../imgs/test1.png)
 
-*All of this is from my learning log*
+*All of this is from my [learning log](../tool/learning-log.md)*
 
 ### Skills
 
