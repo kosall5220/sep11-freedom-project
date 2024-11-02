@@ -41,7 +41,7 @@ I didn’t really follow the steps in order since I first thought about what I w
 * Lack of reflection
     * The app can encourage users to revisit and reflect on memories
     * Website about this problem: [hbr.org](https://hbr.org/2017/03/why-you-should-make-time-for-self-reflection-even-if-you-hate-doing-it)
-* Emotional Well-being
+* Emotional well-being
     * The app could help combat feelings of sadness by allowing the user to revisit happy moments
     * Website about this problem: [cdc.gov](https://www.cdc.gov/emotional-well-being/about/index.html)
 
@@ -133,6 +133,24 @@ I wanted to put the information from my database into an array. To do this I use
 *All of this is from my [learning log](../tool/learning-log.md)*
 
 ### Skills
+
+The skills I improved on were **consideration** and **how to learn**.
+
+#### Consideration
+While brainstorming my “Freedom Project” idea, I had to consider why my app could be useful, what problems it would solve, and the impacts this app could have. For example, while thinking about my app I thought about how it could help people with problems like the loss of important memories, lack of reflection, and emotional well-being by allowing people to preserve their memories by documenting them in entries.
+
+In the future, this skill will help me create my app because I need to use consideration to make the app more user-friendly and easier to use.
+
+#### How to learn
+
+I improved on this skill while learning about Firebase. As I learned about my tool I logged down everything I learned and I tested the code myself. This helped me gain a better understanding on how Firebase works.
+
+As I continue to learn about Firebase, I will need to use this skill to help me gain a further understanding of Firebase and how to use it.
+
+### Next Steps
+
+I hope to use these skills to help me complete the next step in my “Freedom Project” which is to brainstorm how my app will work.
+
 
 
 [Next](entry02.md)
