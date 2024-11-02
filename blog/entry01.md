@@ -15,7 +15,7 @@ For the “Freedom Project”, I want to make a web application designed to help
     * Users can make entries to document significant life events, thoughts, or feelings.
  Users could revisit past entries to reflect on growth
 * Future Messages:
-    * Users can write messages to themselves or loved ones to be delivered on a specific date in the future.
+    * Users can write messages to themselves for the future.
 
 #### Benefits of this project
 * Promotes reflection and personal growth.
