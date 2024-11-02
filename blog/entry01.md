@@ -31,7 +31,7 @@ To make my project I will use a **third-party JS tool** and the **Engineering De
 
 Currently I completed steps 1-3 of the EDP which are defining and **researching the problem** (steps 1-2) and **brainstorming solutions** (step 3).
 
-I didn’t really follow the steps in order since I first thought about what I wanted to make first, and then after that I thought about the problems it could fix.
+I didn’t really follow the steps in order since I first thought about what I wanted to make, and then after that I thought about the problems it could fix.
 
 
 #### Some problems that my app could help fix
@@ -45,14 +45,14 @@ I didn’t really follow the steps in order since I first thought about what I w
     * The app could help combat feelings of sadness by allowing the user to revisit happy moments
     * Website about this problem: [cdc.gov](https://www.cdc.gov/emotional-well-being/about/index.html)
 
-#### Next step
+#### Next step in EDP
 The next step of the EDP is to **plan the most promising solution**. I will start to brainstorm and plan out how my app will look and work.
 
 ### My Tool
 
 For my project I want to give users the ability to make entries to preserve their memories, but there has to be a way to save these entries. Where would these entries be stored?
 
-To deal with this problem I plan to use the JS tool [Firebase](https://firebase.google.com/). **Firebase** is a platform developed by Google that provides tools for building or improving applications, such as real-time databases, authentication, hosting, analytics, and file storage. For my app I plan to use Firebase to create a database in order to store all of the user's entries.
+To deal with this problem I plan to use the JS tool [Firebase](https://firebase.google.com/). **Firebase** is a platform developed by Google that provides tools for building or improving applications, such as real-time databases, authentication, hosting, analytics, and file storage. For my app I plan to use Firebase to create a database to store all of the user's entries.
 
 #### Learning my tool
 
@@ -132,12 +132,14 @@ I wanted to put the information from my database into an array. To do this I use
 
 *All of this is from my [learning log](../tool/learning-log.md)*
 
+---
+
 ### Skills
 
 The skills I improved on were **consideration** and **how to learn**.
 
 #### Consideration
-While brainstorming my “Freedom Project” idea, I had to consider why my app could be useful, what problems it would solve, and the impacts this app could have. For example, while thinking about my app I thought about how it could help people with problems like the loss of important memories, lack of reflection, and emotional well-being by allowing people to preserve their memories by documenting them in entries.
+While brainstorming my “Freedom Project” idea, I had to consider why my app could be useful, what problems could it solve, and the impacts this app could have. For example, while thinking about my app I thought about how it could help people with problems like the loss of important memories, lack of reflection, and emotional well-being by allowing people to preserve their memories by documenting them in entries.
 
 In the future, this skill will help me create my app because I need to use consideration to make the app more user-friendly and easier to use.
 
@@ -151,7 +153,7 @@ As I continue to learn about Firebase, I will need to use this skill to help me 
 
 I hope to use these skills to help me complete the next step in my “Freedom Project” which is to brainstorm how my app will work.
 
-
+---
 
 [Next](entry02.md)
 
