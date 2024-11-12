@@ -168,3 +168,41 @@ My next steps are to write code to delete data from the database and to make the
 * Questions you still have
 * What you're going to try next
 -->
+
+### 11/8/24
+
+Today I learned how to collect data in real time, this would allow the user to see any changes made without having refresh the page. To help me learn how to do this I watched [episode 6](https://www.youtube.com/watch?v=rfQ2F8kQEUg&ab_channel=NetNinja) of Net Ninja's [Getting Started with Firebase 9 playlist](https://www.youtube.com/watch?v=9zdvmgGsww0&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&pp=iAQB) and took notes.
+
+Code I used to collect data in real time:
+```js
+// Real time  collection data
+
+  onSnapshot(colRef, (snapshot) => {})
+  let books = []
+    snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id})
+
+    })
+    console.log(books)
+  })
+
+```
+
+#### Notes I took from video (code explanation):
+
+* `onSnapshot()`: Listens for real-time updates to the firebase collection
+
+* `colRed` is the reference to the Firestore collection
+
+* `let books = []` creates an empty array which stores the data collected in the database
+
+* `snapshot.docs` holds all the documents in the collection at the moment the snapshot was taken.
+
+* `{ ...doc.data(), id: doc.id }` creates a new object that contains all of the document data and adds a new id which gets set to `doc.id`. This new object gets pushed into the books array.
+
+* `doc.data()` returns the data of the document into the books array
+
+### Summary
+The code listens for real-time updates to a Firestore collection. Then processes the documents whenever the collection changes, and logs the processed data into the console. It then turns each Firestore document into an object with the document's data and its ID, and stores those objects in the books array.
+
+
