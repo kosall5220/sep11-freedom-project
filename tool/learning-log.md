@@ -205,4 +205,108 @@ Code I used to collect data in real time:
 ### Summary
 The code listens for real-time updates to a Firestore collection. Then processes the documents whenever the collection changes, and logs the processed data into the console. It then turns each Firestore document into an object with the document's data and its ID, and stores those objects in the books array.
 
+### 11/18/24
+For today I continue following [Net Ninja's "Getting Started with Firebase 9" playist](https://www.youtube.com/watch?v=9zdvmgGsww0&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&pp=iAQB). I'm now on [episode 7](https://www.youtube.com/watch?v=gEaY2GZMino&ab_channel=NetNinja) which is called "Firestore Queries".
 
+#### What are Firestore Queries?
+Firestore Queries are used to filter a collection to only have a specific type of document. For example if I wanted to only have books with the author Patrick Rothfuss in my collection I would have to use queries to fetch only the documents with "patrick rothfuss".
+
+#### Writing code to do this:
+First, I had to add two new functions call `queries` and `where`.
+
+```js
+import { initializeApp } from 'firebase/app'
+import {
+    getFirestore, collection, onSnapshot,
+    addDoc, deleteDoc, doc,
+    query, where // New code is on this line
+} from 'firebase/firestore'
+const firebaseConfig = {
+    apiKey: "AIzaSyBYQHPMys5ykuDu7Z94hPAAwoueF3BSQcE",
+    authDomain: "fir-9-test-1.firebaseapp.com",
+    projectId: "fir-9-test-1",
+    storageBucket: "fir-9-test-1.appspot.com",
+    messagingSenderId: "665870590130",
+    appId: "1:665870590130:web:816761dc5ab86e0e2529ab"
+  };
+```
+Then I made a `const` called `q` and set its value to the function `query()`. This function will have two agruments in it which are `colRef` and `where("author", "==" "patrick rothfuss")`.
+
+```js
+// collection ref
+  const colRef = collection(db, `books`)
+
+// queries
+  const q = query(colRef, where("author", "==", "patrick rothfuss"))
+```
+
+Now only books with the author "patrick rothfuss" will appear in the array:
+![](../imgs/test3.png)
+
+Last, I just replaced colRef with `q` in my realtime database so the function would only activate when the book has the author patrick rothfuss.
+
+```js
+// Real time  collection data
+
+  onSnapshot(q, (snapshot) => {}) // change is here
+  let books = []
+    snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id})
+
+    })
+    console.log(books)
+```
+Now the user could only add a book to the collection if it has the author patrick rothfuss and if it doesn't that book would not be added to the collection.
+
+#### full code (only the parts that I added code to):
+```js
+import { initializeApp } from 'firebase/app'
+import {
+    getFirestore, collection, onSnapshot,
+    addDoc, deleteDoc, doc,
+    query, where
+} from 'firebase/firestore'
+const firebaseConfig = {
+    apiKey: "AIzaSyBYQHPMys5ykuDu7Z94hPAAwoueF3BSQcE",
+    authDomain: "fir-9-test-1.firebaseapp.com",
+    projectId: "fir-9-test-1",
+    storageBucket: "fir-9-test-1.appspot.com",
+    messagingSenderId: "665870590130",
+    appId: "1:665870590130:web:816761dc5ab86e0e2529ab"
+  };
+
+
+ // collection ref
+  const colRef = collection(db, `books`)
+
+  // queries
+  const q = query(colRef, where("author", "==", "patrick rothfuss"))
+
+  // Real time  collection data
+
+  onSnapshot(q, (snapshot) => {})
+  let books = []
+    snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id})
+
+    })
+    console.log(books)
+```
+
+##### How code works:
+
+`query`: function that holds the query.
+
+`where`: A function that allows you to filter documents in a collection based on a field condition.
+
+`q`: This is a query which fetch documents from the books collection where the author field is equal to "patrick rothfuss".
+
+`where("author", "==", "patrick rothfuss")`: filters the data
+
+`onSnapshot(q, (snapshot) => {...})`: When any changes occur in the books collection where the author is "patrick rothfuss", the data in the collection will be updated.
+
+#### example:
+![](../imgs/test3-2.png)
+
+#### Summary
+Overall, today I learned how to use queries to help filter my collection and the inputs of the users.
