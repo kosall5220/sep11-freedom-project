@@ -4,6 +4,11 @@
 ### Context
 As of now, I a still taking steps to learn about my tool Firebase. To continue to learn I watched more videos from [“Getting Started With Firebase 9”](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb) playlist by Net Ninja on youtube.
 
+### EDP
+Currently I'm still in the planning stage of the engineering design process. For my project I plan to use Firebase to create a Firestore collection (e.g., memories) to store memory entries. I also plan to have real-time data collection on my app so  if the user updates a memory, it reflects in real-time.
+
+I plan to continue brainstorming plans for my project so when I do move on to the next stage of the EDP (Creating a prototype) it will be easier to complete.
+
 ### Learning
 
 #### Adding documents to database
@@ -206,6 +211,39 @@ const firebaseConfig = {
 
 ### Summary
 So far I learned how to add documents to my database, collect data in real time, and firebase queries.
+
+### Skills
+
+#### Problem decomposition & How to learn
+While learning I tried my best to break down the code into smaller parts to help me understand it better. For example, when I was learning how to create a real-time database I broke down the code into small pieces.
+
+```js
+// Real time  collection data
+
+  onSnapshot(colRef, (snapshot) => {})
+  let books = []
+    snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id})
+
+    })
+    console.log(books)
+  })
+```
+Break down of code:
+
+`onSnapshot()`: Listens for real-time updates to the firebase collection
+
+`colRed` is the reference to the Firestore collection
+
+`let books = []` creates an empty array which stores the data collected in the database
+
+`snapshot.docs` holds all the documents in the collection at the moment the snapshot was taken.
+
+`{ ...doc.data(), id: doc.id }` creates a new object that contains all of the document data and adds a new id which gets set to doc.id. This new object gets pushed into the books array.
+
+`doc.data()` returns the data of the document into the books array
+
+Doing this helps me learn more effectively because it helps me understand every part of the code and how it works.
 
 ### Next steps
 Now I plan to create my own mini project (a to-do list) with Firebase over winter break.
