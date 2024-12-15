@@ -208,7 +208,7 @@ const firebaseConfig = {
 So far I learned how to add documents to my database, collect data in real time, and firebase queries.
 
 ### Next steps
-Now I plan to create my own mini projec (a to-do list) with Firebase.
+Now I plan to create my own mini project (a to-do list) with Firebase over winter break.
 
 [Previous](entry01.md) | [Next](entry03.md)
 
