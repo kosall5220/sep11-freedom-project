@@ -79,11 +79,26 @@ When I look at the console the array did not show up. This is what showed up ins
 
 ![image](../imgs/error.png)
 
+Error message since image is not working:
+
+```js
+- Uncaught SantaxError: Unexpected token `export` (at firebase-app.js:2350:1)
+- Uncaught SantaxError: Cannot use import statement outside a module (at firebase-firestore.js:1:1)
+- Uncaught SantaxError: Cannot use import statement outside a module (at app.js:37:1)
+```
+
 Error messages showed up, and since I don't really understand what the error messages I went back to the [“Getting Started With Firebase 9”](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb) playlist by Net Ninja for help. I realized I missed a very important step which was installing webpack. According to the [Firebase doc](https://firebase.google.com/docs/web/setup), "The Firebase Web SDK is designed to work with module bundlers to remove any unused code (tree-shaking)" which means Firebase will not work if I don't use a module bunder like webpack. So I had created a new folder for my project and installed webpack on it by writing `$npm i webpack-cli -d` into my terminal.
 
 Now that I have Webpack installed I should see my array inside of my console.
 
 ![image](../imgs/fixed.png)
+
+what the image of console shows:
+```js
+0 {task: 'hw', created: '1-6-25', id: (id-of-item)}
+1 {task: 'walk dog', created: '1-3-25', id: (id-of-item)}
+[[prototype]]: Array(0)
+```
 
 Thankfully it worked and now I can see the documents inside of my console. Next time I will attempt to allow users to edit this array so they could add and delete their tasks.
 
