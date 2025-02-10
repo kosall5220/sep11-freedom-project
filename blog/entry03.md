@@ -77,13 +77,13 @@ Each task is pushed into the `tasks` array, and the array is logged to the conso
 ### Code didn't work?
 When I look at the console the array did not show up. This is what showed up instead:
 
-![](../imgs/test4.png)
+![](/imgs/test4.png)
 
 Error messages showed up, and since I don't really understand what the error messages I went back to the [“Getting Started With Firebase 9”](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb) playlist by Net Ninja for help. I realized I missed a very important step which was installing webpack. According to the [Firebase doc](https://firebase.google.com/docs/web/setup), "The Firebase Web SDK is designed to work with module bundlers to remove any unused code (tree-shaking)" which means Firebase will not work if I don't use a module bunder like webpack. So I had created a new folder for my project and installed webpack on it by writing `$npm i webpack-cli -d` into my terminal.
 
 Now that I have Webpack installed I should see my array inside of my console.
 
-![](../imgs/test4-2.png)
+![](/imgs/test4-2.png)
 
 Thankfully it worked and now I can see the documents inside of my console. Next time I will attempt to allow users to edit this array so they could add and delete their tasks.
 
