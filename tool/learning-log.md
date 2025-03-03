@@ -398,7 +398,7 @@ Thankfully it worked and now I can see the documents inside of my console. Next 
 ### 2/28/25
 I continued the todo list project and created code to allow the user to add and delete documents to the Firebase database.
 
-### Adding
+#### Adding
 
 * First I created a form on html to have a place for the user to put their inputs. One text input would be for the task and the other would be for the date of the task.
 ```js
@@ -441,3 +441,32 @@ Before:
 
 After:
 ![](../imgs/after-add.png)
+
+
+#### Deleting
+
+* Just like for adding I created a form in HTML for deleting task. The user would have to write the ID of the task and push a button to delete it.
+
+```js
+ <form class = "delete">
+    <label for="id">Document id</label>
+    <input type = "text" name="id" required>
+    <button> delete task </button>
+  </form>
+```
+
+* Then again I used a `querySeletor` to link this form to my JS file and then an `EventListener` to run a function when the form is submitted. This function will find the id of the item in the "tasks" collection and then run a deleteDoc function which deletes the item in the firebase database.
+
+```js
+const deleteTask = document.querySelector(".delete");
+  deleteTask.addEventListener("submit", (e) => {
+      const docRef = doc(db, 'tasks', deleteTask.id.value)
+      deleteDoc(docRef)
+      .them(() => {
+          deleteTask.reset()
+      })
+  })
+```
+
+#### Next steps
+I plan to find out what else I can use firebase for outside of just creating a  realtime database.

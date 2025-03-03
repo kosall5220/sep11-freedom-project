@@ -1,7 +1,7 @@
 
 import { initializeApp } from 'firebase/app'
 import {
-    getFirestore, collection, getDocs, addDoc
+    getFirestore, collection, getDocs, addDoc, deleteDoc, doc
 } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -54,5 +54,10 @@ const firebaseConfig = {
     // delete
     const deleteTask = document.querySelector(".delete");
     deleteTask.addEventListener("submit", (e) => {
-        e.preventDefault()
+
+        const docRef = doc(db, 'tasks', deleteTask.id.value)
+        deleteDoc(docRef)
+        .them(() => {
+            deleteTask.reset()
+        })
     })
