@@ -1,7 +1,7 @@
 
 import { initializeApp } from 'firebase/app'
 import {
-    getFirestore, collection, getDocs
+    getFirestore, collection, getDocs, addDoc
 } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -23,7 +23,7 @@ const firebaseConfig = {
   // collection ref
   const colRef = collection(db, 'tasks')
 
-  // get collectiom data
+  // get collection data
   getDocs(colRef)
     .then((snapshot) => {
         let tasks = []
@@ -34,4 +34,25 @@ const firebaseConfig = {
     })
     .catch(err => {
         console.log(err.message)
+    })
+
+    // add
+    const addTask = document.querySelector(".add");
+    addTask.addEventListener("submit", (e) => {
+        e.preventDefault()
+        addDoc(colRef, {
+            task: addTask.task.value,
+            created: addTask.created.value
+        })
+        .then(() => {
+            addTask.reset()
+
+        })
+
+    })
+
+    // delete
+    const deleteTask = document.querySelector(".delete");
+    deleteTask.addEventListener("submit", (e) => {
+        e.preventDefault()
     })
