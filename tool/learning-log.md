@@ -383,14 +383,61 @@ Each task is pushed into the `tasks` array, and the array is logged to the conso
 #### Code didn't work?
 When I look at the console the array did not show up. This is what showed up instead:
 
-![](../imgs/test4.png)
+![](../imgs/error.png)
 
 Error messages showed up, and since I don't really understand what the error messages I went back to the [“Getting Started With Firebase 9”](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb) playlist by Net Ninja for help. I realized I missed a very important step which was installing webpack. According to the [Firebase doc](https://firebase.google.com/docs/web/setup), "The Firebase Web SDK is designed to work with module bundlers to remove any unused code (tree-shaking)" which means Firebase will not work if I don't use a module bunder like webpack. So I had created a new folder for my project and installed webpack on it by writing `$npm i webpack-cli -d` into my terminal.
 
 Now that I have Webpack installed I should see my array inside of my console.
 
-![](../imgs/test4-2.png)
+![](../imgs/fixed.png)
 
 Thankfully it worked and now I can see the documents inside of my console. Next time I will attempt to allow users to edit this array so they could add and delete their tasks.
 
 ---
+
+### 2/28/25
+I continued the todo list project and created code to allow the user to add and delete documents to the Firebase database.
+
+### Adding
+
+* First I created a form on html to have a place for the user to put their inputs. One text input would be for the task and the other would be for the date of the task.
+```js
+ <form class = "add">
+
+        <label for = "task">Add:</label>
+        <input type="text" name="title" required>
+        <label for = "created">The date:</label>
+        <input type="text" name="date" required>
+
+        <button>add a task</button>
+        </form>
+```
+
+* Now I need to make these inputs go somewhere. First I had to use a `querySeletor` to allow changes to be made to the form in JS.
+
+```js
+const addTask = document.querySelector(".add");
+```
+I stored the `querySelector` into a `const` because it's easier to just write `addTask` then to keep on writing `document.querySelector(".add");`.
+
+* Then I used an EventListener to listen for when the form is submitted and run a function once it hears the event.
+
+```js
+addTask.addEventListener("submit", (e) => {
+
+        addDoc(colRef, {
+            task: addTask.task.value,
+            created: addTask.created.value
+        })
+        .then(() => {
+            addTask.reset()
+        })
+    })
+```
+When the user hits submit it will add the value of `addTask` into the colRef (the database) and then the form will reset.
+
+Before:
+![](../imgs/before-add.png)
+
+After:
+![](../imgs/after-add.png)
