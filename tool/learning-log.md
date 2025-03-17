@@ -470,3 +470,26 @@ const deleteTask = document.querySelector(".delete");
 
 #### Next steps
 I plan to find out what else I can use firebase for outside of just creating a  realtime database.
+
+### 3/13/25
+
+Today I looked through the [Firebase Docs](https://firebase.google.com/docs/build) to see what else I can do with Firebase. Unfortunately I couldn’t try some of these features because I would have to pay for them.
+
+#### Authentication
+**Firebase Authentication** – Manage user sign-ins with email/password, phone number, and social logins
+
+### Storage
+**Cloud Storage** - Stores user generated content such as images, videos, and audio.
+
+#### Hosting
+With firebase you can host global web applications with CDN (Content Delivery Network) &  SSL (Secure Sockets Layer).
+
+* **CDN** - A network of servers that store and deliver website content (like images, scripts, and videos) from locations close to users. This speeds up loading times and improves performance.
+
+* **SSL** - Encrypts data between a user's browser and a website, preventing hackers from having access to sensitive information.
+
+#### Could Functions
+* Send things like notifications and emails
+* Process Media
+* Trigger things in your app by Firebase events
+

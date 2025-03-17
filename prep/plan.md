@@ -10,7 +10,6 @@
 
 #### MVP (deadline: 4/21)
 
-
 <!-- - [ ] Task (deadline: X)
   - [ ] Subtask (deadline: X) -->
 
