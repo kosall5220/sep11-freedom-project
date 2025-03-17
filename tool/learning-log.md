@@ -471,7 +471,7 @@ const deleteTask = document.querySelector(".delete");
 #### Next steps
 I plan to find out what else I can use firebase for outside of just creating a  realtime database.
 
-### 3/13/25
+### 3/17/25
 
 Today I looked through the [Firebase Docs](https://firebase.google.com/docs/build) to see what else I can do with Firebase. Unfortunately I couldn’t try some of these features because I would have to pay for them.
 
