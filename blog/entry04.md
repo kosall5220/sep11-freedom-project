@@ -98,7 +98,60 @@ Here is my plan:
 
 ![](../imgs/timeline.png)
 
+### MVP progress (creating the prototype):
 
+#### Using Firebase
+First I went onto the [Firebase website](https://firebase.google.com/) and create a new project called "SEP11 Freedom Project"
+
+![](../imgs/project.png)
+
+Then in this project I clicked "add app" to create my web app's Firebase configuration.
+
+![](../imgs/fpfirebase.png)
+
+I typed `npm install firebase` into my terminal to install firebase into my IDE. Then I copied the Firebase configuration into my script.js file.
+
+![](../imgs/scriptjs.png)
+
+After installing Firebase I will now create my database. For my project I would like to save the entry and the date of the entry.
+
+First I created a new Firestore database. Then I created a new collection called "entries" which holds a document called "entry" and this entry will have the written memory of the user and the date they wrote.
+
+![](../imgs/database.png)
+
+#### Working on HTML
+For now I just created the title, and text inputs that users will write on to add their entries and dates.
+
+```html
+ <div>
+    // title
+    <h1> Time capsule</h1>
+    // inputs
+    <div id="entry-form" class="hidden">
+        <input type="text" id="textInput" placeholder="Write a memory"> // entry input
+        <input type="date" id="unlock-date"> // date input
+        <button id="save-entry">Save Entry</button> // submit button
+    </div>
+    // where the list of entries will be
+    <h2>Your Entries</h2>
+    <div id="entries-list"></div>
+</div>
+```
+
+##### What I have so far:
+
+![](../imgs/3-16-25.png)
+
+![](../imgs/3-16.png)
+
+### Skills that I improved:
+
+#### Time management
+For my MVP I created a plan + deadlines for me to follow. This plan allows me to prioritize tasks and set specific timeslots for each activity which ensures that I can focus on what
+needs to be done by a certain time. It also helps me avoid missing deadlines and overlooking important tasks.
+
+#### Problem decomposition
+I broke down my freedom project into multiple smaller tasks to make it more manageable to complete. Just like time management, having this skill will make sure I complete my tasks effciently and on time.
 
 [Previous](entry03.md) | [Next](entry05.md)
 
