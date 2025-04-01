@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 // Firebase configuration
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyA7rquDnPgGYCy-z9CZOyCT1gYuokA1vFY",
     authDomain: "sep11-freedom-project-e57af.firebaseapp.com",
     databaseURL: "https://sep11-freedom-project-e57af-default-rtdb.firebaseio.com",
@@ -15,5 +15,41 @@ const firebaseConfig = {
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  var app = initializeApp(firebaseConfig);
+  var analytics = getAnalytics(app);
+
+
+
+var addEntryForm = document.querySelector('.add');
+addEntryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    addDoc(collection(db, 'entries'), {
+        memory: addEntryForm.memory.value,
+        date: addEntryForm.date.value,
+    }).then(() => {
+        addEntryForm.reset();
+    });
+});
+
+var deleteEntryForm = document.querySelector('.delete');
+deleteEntryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const docRef = doc(db, 'entries', deleteEntryForm.id.value);
+    deleteDoc(docRef).then(() => {
+        deleteEntryForm.reset();
+    });
+});
+
+var colRef = collection(db, 'entries');
+
+var memoryText = "special memory";
+var q = query(colRef, where("memory", "==", memoryText));
+
+
+onSnapshot(q, (snapshot) => {
+    var entries = [];
+    snapshot.docs.forEach((doc) => {
+        entries.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(entries);
+});

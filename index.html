@@ -18,17 +18,24 @@
         <!-- HTML -->
     <div>
          <h1> Time capsule</h1>
-         <div id="entry-form" class="hidden">
-            <input type="text" id="textInput" placeholder="Write a memory">
-            <input type="date" id="unlock-date">
-            <button id="save-entry">Save Entry</button>
-        </div>
-        <h2>Your Entries</h2>
-        <div id="entries-list"></div>
+         
+        <form class="add">
+            <input type="text" name="memory" placeholder="Write a memory" required>
+            <input type="date" name="date" required>
+            <button type="submit">Save Entry</button>
+        </form>
+
+        <form class="delete">
+            <input type="text" name="id" placeholder="Document ID" required>
+            <button type="submit">Delete Entry</button>
+        </form>
+
     </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- <script src="script.js"></script> -->
+        <script src="script.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script>
         <script>
             // JS
 
