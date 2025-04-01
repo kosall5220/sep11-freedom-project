@@ -493,3 +493,55 @@ With firebase you can host global web applications with CDN (Content Delivery Ne
 * Process Media
 * Trigger things in your app by Firebase events
 
+### 3/30/25
+I attempted to use firebase in my SEP11 freedom project to store the memory entries.
+
+I first linked my database to the website by writing this code:
+```js
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+// Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyA7rquDnPgGYCy-z9CZOyCT1gYuokA1vFY",
+    authDomain: "sep11-freedom-project-e57af.firebaseapp.com",
+    databaseURL: "https://sep11-freedom-project-e57af-default-rtdb.firebaseio.com",
+    projectId: "sep11-freedom-project-e57af",
+    storageBucket: "sep11-freedom-project-e57af.firebasestorage.app",
+    messagingSenderId: "854302404692",
+    appId: "1:854302404692:web:44f91df0d537c642eb3dc1",
+    measurementId: "G-GV5S6GXRL0"
+  };
+
+  // Initialize Firebase
+  var app = initializeApp(firebaseConfig);
+  var analytics = getAnalytics(app);
+```
+
+Then I tried to allow the manipulation of this database by using this code:
+```js
+    // Select the form element with the class 'add'
+    var addEntryForm = document.querySelector('.add');
+
+    // listen for the 'submit' event
+    addEntryForm.addEventListener('submit', (e) => {
+        // Prevent the default form submission behavior (page reload)
+        e.preventDefault();
+
+    // Add a new document to the 'entries' collection in the Firestore database
+    addDoc(collection(db, 'entries'), {
+        // Store the memory value from the form input
+        memory: addEntryForm.memory.value,
+        // Store the date value from the form input
+        date: addEntryForm.date.value,
+    }).then(() => {
+        // Reset the form after adding the entry
+        addEntryForm.reset();
+    });
+});
+```
+
+But when I tested this code I got this error:
+![](../imgs/errorr.png)
+
+I still haven't found a solution to this yet and I plan to continue to find any possible solutions to this.
