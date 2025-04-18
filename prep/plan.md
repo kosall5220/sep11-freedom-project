@@ -17,15 +17,15 @@
 
 - [x] Create new project on Firebase website to store database (deadline: 2/18)
   - [x] Create firebase database (deadline: 2/25)
-- [x ] Implement database to app(deadline: 3/15)
+- [x] Implement database to app(deadline: 3/15)
   - [x] install firebase into my IDE (deadline: 3/3)
-  - [x ] Add database into the console/backend (deadline: 3/10)
+  - [x] Add database into the console/backend (deadline: 3/10)
 
 
 #### Website/app
-- [ x] Entries list (deadline: 4/18)
-    - [ x] list to hold and display entries (deadline: 3/28)
-    - [ x] Buttons for adding & deleting (deadline: 4/7)
+- [x] Entries list (deadline: 4/18)
+    - [x] list to hold and display entries (deadline: 3/28)
+    - [x] Buttons for adding & deleting (deadline: 4/7)
     - [x] text inputs (typed entry & date) (deadline: 4/15)
 
 
