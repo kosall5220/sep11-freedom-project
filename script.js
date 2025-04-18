@@ -1,55 +1,82 @@
-
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 
 // Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyA7rquDnPgGYCy-z9CZOyCT1gYuokA1vFY",
     authDomain: "sep11-freedom-project-e57af.firebaseapp.com",
-    databaseURL: "https://sep11-freedom-project-e57af-default-rtdb.firebaseio.com",
     projectId: "sep11-freedom-project-e57af",
-    storageBucket: "sep11-freedom-project-e57af.firebasestorage.app",
+    storageBucket: "sep11-freedom-project-e57af.appspot.com",
     messagingSenderId: "854302404692",
     appId: "1:854302404692:web:44f91df0d537c642eb3dc1",
     measurementId: "G-GV5S6GXRL0"
-  };
+};
 
-  // Initialize Firebase
-  var app = initializeApp(firebaseConfig);
-  var analytics = getAnalytics(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
+document.addEventListener('DOMContentLoaded', () => {
+    const saveButton = document.getElementById('save-entry');
+    const memoryInput = document.getElementById('memoryInput');
+    const entriesList = document.getElementById('entries-list');
+    const memoryCount = document.getElementById('memory-count'); // Counter element
 
+    // Function to update the memory count
+    async function updateMemoryCount() {
+        const snapshot = await getDocs(collection(db, 'entries'));
+        memoryCount.textContent = `Total Memories: ${snapshot.size}`;
+    }
 
-var addEntryForm = document.querySelector('.add');
-addEntryForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    addDoc(collection(db, 'entries'), {
-        memory: addEntryForm.memory.value,
-        date: addEntryForm.date.value,
-    }).then(() => {
-        addEntryForm.reset();
+    // Save a new memory to Firestore
+    saveButton.addEventListener('click', async () => {
+        const memory = memoryInput.value;
+
+        if (memory) {
+            try {
+                await addDoc(collection(db, 'entries'), { memory });
+                memoryInput.value = ''; // Clear the input field
+                updateMemoryCount(); // Update the memory count
+            } catch (error) {
+                console.error('Error adding memory:', error);
+            }
+        } else {
+            alert('Please write a memory.');
+        }
     });
+
+    // Real-time listener to display memories and update the count
+    onSnapshot(collection(db, 'entries'), (snapshot) => {
+        entriesList.innerHTML = ''; // Clear the list
+        snapshot.forEach(docSnapshot => {
+            const entry = docSnapshot.data();
+            const entryId = docSnapshot.id; // Get the document ID
+            const entryElement = document.createElement('div');
+            entryElement.classList.add('entry-item');
+            entryElement.innerHTML = `
+                <p><strong>Memory:</strong> ${entry.memory}</p>
+                <button class="delete-btn">Delete</button>
+                <hr>
+            `;
+
+            // Add delete functionality
+            const deleteButton = entryElement.querySelector('.delete-btn');
+            deleteButton.addEventListener('click', async () => {
+                try {
+                    await deleteDoc(doc(db, 'entries', entryId)); // Delete from Firestore
+                    updateMemoryCount(); // Update the memory count
+                } catch (error) {
+                    console.error('Error deleting memory:', error);
+                }
+            });
+
+            entriesList.appendChild(entryElement); // Add the entry to the list
+        });
+        updateMemoryCount(); // Update the memory count
+    });
+
+    // Initial memory count on page load
+    updateMemoryCount();
 });
 
-var deleteEntryForm = document.querySelector('.delete');
-deleteEntryForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const docRef = doc(db, 'entries', deleteEntryForm.id.value);
-    deleteDoc(docRef).then(() => {
-        deleteEntryForm.reset();
-    });
-});
 
-var colRef = collection(db, 'entries');
-
-var memoryText = "special memory";
-var q = query(colRef, where("memory", "==", memoryText));
-
-
-onSnapshot(q, (snapshot) => {
-    var entries = [];
-    snapshot.docs.forEach((doc) => {
-        entries.push({ ...doc.data(), id: doc.id });
-    });
-    console.log(entries);
-});
