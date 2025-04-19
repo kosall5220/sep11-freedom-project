@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function()  {
 
     async function updateMemoryCount() { // async tells program to wait for the function to finish before moving on
         var snapshot = await getDocs(collection(db, 'entries')); // Get all documents in the 'entries' collection
-        memoryCount.textContent = `Total Entries: ${snapshot.size}`; // Update the memory count
+        memoryCount.textContent = `Total Entires: ${snapshot.size}`; // Update the memory count
         // ${} allows variables to be used in strings
     }
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function()  {
     // Real-time listener to display memories and update the count
     onSnapshot(collection(db, 'entries'), function (snapshot) { // Real-time listener
         entriesList.innerHTML = ''; // Clear the list
-        snapshot.forEach(docSnapshot function() { // Loop through each document
+        snapshot.forEach(function(docSnapshot) { // Loop through each document
             var entry = docSnapshot.data(); // Get the data from the document
             var entryId = docSnapshot.id; // Get the document ID
             var entryElement = document.createElement('div'); // Create a new div for each entry
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function()  {
                 <hr>
             `; // Add the memory text and a delete button
 
-            // Add delete functionality
+            // Add delete function
             var deleteButton = entryElement.querySelector('.delete-btn'); // Get the delete button
             deleteButton.addEventListener('click', async function()  { // Add click event
                 try {
