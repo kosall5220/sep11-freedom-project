@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function()  {
 
     async function updateMemoryCount() { // async tells program to wait for the function to finish before moving on
         var snapshot = await getDocs(collection(db, 'entries')); // Get all documents in the 'entries' collection
-        memoryCount.textContent = `Total Memories: ${snapshot.size}`; // Update the memory count
+        memoryCount.textContent = `Total Entries: ${snapshot.size}`; // Update the memory count
         // ${} allows variables to be used in strings
     }
 
