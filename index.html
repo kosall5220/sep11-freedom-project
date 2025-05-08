@@ -9,6 +9,26 @@
         <link href="style.css" rel="stylesheet" type="text/css" />
         <style>
             /* CSS */
+            .navbar-brand {
+                color: #FFFF;
+            }
+
+            .bg-primary {
+                background: rgba(10, 10, 120, 0.5) !important;
+                color: #FFFF;
+            }
+
+            #memory-count {
+                font-size: 20px;
+            }
+            .navbar-custom{
+                text-transform: uppercase;
+                font-size: 1rem;
+                letter-spacing: 0.1rem;
+                font-weight: 700;
+                color: #F0F3FF;
+                }
+
 
         </style>
 
@@ -16,15 +36,31 @@
     </head>
     <body>
         <!-- HTML -->
-    <div>
-         <h1>Time Capsule</h1>
 
-         <div id="entry-form">
+
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top bg-primary">
+            <div class="container px-3">
+              <a class="navbar-brand">Time Capsule App</a>
+              <a id="memory-count">Total Entries: 0</a> <!-- Memory count -->
+                <div id="entry-form">
+                    <input type="text" id="memoryInput" placeholder="Write a memory" required>
+                    <button id="save-entry">Save Entry</button>
+                </div>
+            </div>
+          </nav>
+    <div>
+
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading"> place holder </h1>
+        </header>
+
+
+         <!-- <div id="entry-form">
             <input type="text" id="memoryInput" placeholder="Write a memory" required>
             <button id="save-entry">Save Entry</button>
-        </div>
-
-        <h3 id="memory-count">Total Entries: 0</h3> <!-- Memory count -->
+        </div> -->
 
         <h2>Entries:</h2>
         <h5> All entries are PUBLIC and can be seen by others</h5>

@@ -22,3 +22,11 @@
 .delete-btn:hover {
     background-color: #ff1a1a;
 }
+
+h1 {
+    padding: 10px;
+}
+
+body {
+    text-align:center;
+}
