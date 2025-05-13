@@ -1,16 +1,25 @@
 # Presentation Plan
 
 ## Hook
-* 
+* Statement: Preserving a memory can allow a moment to be relived years after it happened.
+* or a question: Have you ever written a message to your future self or wished you could have saved a memory before it vanishes?
+
 
 ## Product
-* 
+* Live demo of adding and deleting entries
 
 ## Process
-* 
+* Show MVP
+* Firebase learning/code
+* JS code snippets
+* Beyond MVP
 
 ## Conclusion
-* 
+* Link to project
+* Takeaways:
+  * You are more capable then you think
+  * Feedback reveal opportunities to improve
+  
 
 <!-- EXAMPLE
 
