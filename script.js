@@ -5,7 +5,7 @@
     import { getFirestore, collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 
     // Firebase configuration
-    const firebaseConfig = {
+    var firebaseConfig = {
         apiKey: "AIzaSyA7rquDnPgGYCy-z9CZOyCT1gYuokA1vFY",
         authDomain: "sep11-freedom-project-e57af.firebaseapp.com",
         projectId: "sep11-freedom-project-e57af",
@@ -16,16 +16,16 @@
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    var app = initializeApp(firebaseConfig);
+    var db = getFirestore(app);
 
     // DOM Elements
     document.addEventListener("DOMContentLoaded", function () {
-        const saveButton = document.getElementById("save-entry"); // Button to save memory
-        const memoryInput = document.getElementById("memoryInput"); // Input for memories
-        const entriesList = document.getElementById("entries-list"); // List to display memories
-        const memoryCount = document.getElementById("memory-count"); // Memory counter
-        const backToTopButton = document.getElementById("back-to-top"); // Back to Top button
+        var saveButton = document.getElementById("save-entry"); // Button to save memory
+        var memoryInput = document.getElementById("memoryInput"); // Input for memories
+        var entriesList = document.getElementById("entries-list"); // List to display memories
+        var memoryCount = document.getElementById("memory-count"); // Memory counter
+        var backToTopButton = document.getElementById("back-to-top"); // Back to Top button
 
 
         // Memory Count Functionality
@@ -34,7 +34,7 @@
         // Function to update the memory count
         async function updateMemoryCount() {
             try {
-                const snapshot = await getDocs(collection(db, "entries")); // Get all documents in the "entries" collection
+                var snapshot = await getDocs(collection(db, "entries")); // Get all documents in the "entries" collection
                 memoryCount.textContent = `Total Entries: ${snapshot.size}`; // Update the memory count // ${} allows variables to be used in strings
             } catch (error) {
                 console.error("Error updating memory count:", error);
@@ -43,7 +43,7 @@
 
         // Save a new memory to Firestore
         saveButton.addEventListener("click", async function () {
-            const memory = memoryInput.value.trim(); // Get the value from the input field and trim whitespace
+            var memory = memoryInput.value.trim(); // Get the value from the input field and trim whitespace
 
             if (memory) {
                 try {
@@ -62,11 +62,11 @@
         onSnapshot(collection(db, "entries"), function (snapshot) {
             entriesList.innerHTML = ""; // Clear the list
             snapshot.forEach(function (docSnapshot) {
-                const entry = docSnapshot.data(); // Get the data from the document
-                const entryId = docSnapshot.id; // Get the document ID
+                var entry = docSnapshot.data(); // Get the data from the document
+                var entryId = docSnapshot.id; // Get the document ID
 
                 // Create a new div for each entry
-                const entryElement = document.createElement("div");
+                var entryElement = document.createElement("div");
                 entryElement.classList.add("entry-item"); // Add a class for styling
                 entryElement.innerHTML = `
                     <p><strong>Entry:</strong> ${entry.memory}</p>
@@ -75,9 +75,9 @@
                 `;
 
                 // Add delete functionality
-                const deleteButton = entryElement.querySelector(".delete-btn");
+                var deleteButton = entryElement.querySelector(".delete-btn");
                 deleteButton.addEventListener("click", async function () {
-                    const confirmDelete = confirm("Are you sure you want to delete this entry?");
+                    var confirmDelete = confirm("Are you sure you want to delete this entry?");
                     if (confirmDelete) {
                         try {
                             await deleteDoc(doc(db, "entries", entryId)); // Delete from Firestore
