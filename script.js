@@ -35,7 +35,7 @@
         async function updateMemoryCount() {
             try {
                 const snapshot = await getDocs(collection(db, "entries")); // Get all documents in the "entries" collection
-                memoryCount.textContent = `Total Entries: ${snapshot.size}`; // Update the memory count
+                memoryCount.textContent = `Total Entries: ${snapshot.size}`; // Update the memory count // ${} allows variables to be used in strings
             } catch (error) {
                 console.error("Error updating memory count:", error);
             }
