@@ -33,9 +33,9 @@
 
 #### Beyond MVP
 
-- [ ] CSS
-  - [ ] Appealing fonts and colors
-  - [ ] Maybe add a theme changer
+- [x] CSS
+  - [x] Appealing fonts and colors
+  
 
 
 <!-- EXAMPLE
